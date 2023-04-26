@@ -8,7 +8,7 @@ const OtpRegister = () => {
     const [toggleCheckBox, setToggleCheckBox] = useState(false)
     return (
         <View style={styles.container}>
-            <View style={[styles.cloud,{marginTop:-20}]}>
+            <View style={[styles.cloud, { marginTop: -20 }]}>
                 <Image source={require('../images/left-top.png')} />
                 <Image source={require('../images/right-top.png')} />
             </View>
@@ -17,34 +17,40 @@ const OtpRegister = () => {
                 <Text style={[styles.txt, { fontSize: 30, fontWeight: '900', lineHeight: 36 }]}>Pepsi Tết</Text>
             </View>
             <Image source={require('../images/flower-1.png')} style={{ marginTop: 8 }} />
-            <View style={[styles.viewText, { marginTop: -11 }]}>
-                <Text style={[styles.txt, { fontSize: 24, fontWeight: '900', lineHeight: 29 }]}>ĐĂNG KÝ </Text>
-                <TextInput style={[styles.input]} placeholder="Số điện thoại" keyboardType='numeric'></TextInput>
-                <TextInput style={[styles.input, { marginTop: 0 }]} placeholder="Tên người dùng"></TextInput>
-                <View style={{ flexDirection: 'row', marginLeft: 20, marginTop: -10 }}>
-                    <CheckBox disabled={false} value={toggleCheckBox} onValueChange={(newValue) => setToggleCheckBox(newValue)}></CheckBox>
-                    <Pressable style={{ marginTop: 8 }}><Text style={[styles.txt,{fontSize:14,lineHeight:17}]}>Tôi đã đọc và đồng ý với <Text style={{ color: 'yellow', paddingTop: 12 }}>thể lệ chường trình</Text> </Text></Pressable>
+            <View style={[styles.viewText, { marginTop: 21 }]}>
+
+                <Text style={styles.txt}>
+                    Xác minh OTP
+                </Text>
+                <Text style={[styles.txt,{marginBottom:30}]}>
+                    Nhập mã OTP vừa được gửi về điện thoại của bạn
+                </Text>
+                <View style={{ flexDirection: 'row' }}>
+                    <TextInput style={[styles.input, { marginTop: 0 }]} placeholder="-"></TextInput>
+                    <TextInput style={[styles.input, { marginTop: 0 }]} placeholder="-"></TextInput>
+                    <TextInput style={[styles.input, { marginTop: 0 }]} placeholder="-"></TextInput>
+                    <TextInput style={[styles.input, { marginTop: 0 }]} placeholder="-"></TextInput>
                 </View>
             </View>
-            <Image source={require('../images/flower-2.png')} style={{position:'absolute',right:0,top:383}}/>
-            <Image  source={require('../images/flower-3.png')} style={{position:'absolute',left:0,top:412}}/>
-            <View style={{lineHeight:20,marginTop:70,alignItems:'center'}}>
-                <Pressable><Image source={require('../images/OTP.png')}/></Pressable>
-                <Pressable><Image source={require('../images/LG.png')} style={{marginTop:15}}/></Pressable>
+            <Image source={require('../images/flower-2.png')} style={{ position: 'absolute', right: 0, top: 383 }} />
+            <Image source={require('../images/flower-3.png')} style={{ position: 'absolute', left: 0, top: 412 }} />
+            <View style={{ lineHeight: 20, marginTop: 20, alignItems: 'center' }}>
+                <Pressable><Image source={require('../images/XD.png')}/></Pressable>
             </View>
-            <Image source={require('../images/left-bottom.png')} style={{position:'absolute',left:-10,top:530}}/>
-            <Image source={require('../images/right-bottom.png')} style={{position:'absolute',right:0,top:479}}/>
+            <Pressable style={{ marginTop: 8 }}><Text style={[styles.txt,{fontSize:14,lineHeight:17}]}>Bạn chưa nhận được mã? <Text style={{ color: 'yellow', paddingTop: 12 }}>Gửi lại mã</Text> </Text></Pressable>
+            <Image source={require('../images/left-bottom.png')} style={{ position: 'absolute', left: -10, top: 530 }} />
+            <Image source={require('../images/right-bottom.png')} style={{ position: 'absolute', right: 0, top: 479 }} />
         </View>
     )
 }
 
-export default OtpRegistern  
+export default OtpRegister
 
 const styles = StyleSheet.create({
     container: {
         backgroundColor: '#3399FF',
         height: 1200,
-        maxHeight:1200
+        maxHeight: 1200
     },
     cloud: {
         flexDirection: 'row',
@@ -63,6 +69,8 @@ const styles = StyleSheet.create({
         margin: 20,
         borderRadius: 8,
         color: 'black',
-        paddingLeft: 12
+        textAlign: 'center',
+        width: 44,
+        height: 44
     }
 })
