@@ -1,13 +1,12 @@
 import { Image, Pressable, StyleSheet, Text, TextInput, View } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import CheckBox from '@react-native-community/checkbox'
-import { useNavigation } from '@react-navigation/native'
 
 
 
 const Register = () => {
     const [toggleCheckBox, setToggleCheckBox] = useState(false)
-    const navi =useNavigation();
+    
     return (
         <View style={styles.container}>
             <View style={[styles.cloud,{marginTop:-20}]}>
@@ -15,8 +14,8 @@ const Register = () => {
                 <Image source={require('../images/right-top.png')} />
             </View>
             <View style={[styles.viewText, { marginTop: -100 }]}>
-                <Text style={[styles.txt, { fontSize: 18, fontWeight: '400', lineHeight: 22 }]}>Hey, mừng bạn đến với</Text>
-                <Text style={[styles.txt, { fontSize: 30, fontWeight: '900', lineHeight: 36 }]}>Pepsi Tết</Text>
+                <Text style={[styles.txt, { fontSize: 12, fontWeight: '400', lineHeight: 22 }]}>Hey, mừng bạn đến với</Text>
+                <Text style={[styles.txt, { fontSize: 20, fontWeight: '900', lineHeight: 36 }]}>Pepsi Tết</Text>
             </View>
             <Image source={require('../images/flower-1.png')} style={{ marginTop: 8 }} />
             <View style={[styles.viewText, { marginTop: -11 }]}>
@@ -24,18 +23,18 @@ const Register = () => {
                 <TextInput style={[styles.input]} placeholder="Số điện thoại" keyboardType='numeric'></TextInput>
                 <TextInput style={[styles.input, { marginTop: 0 }]} placeholder="Tên người dùng"></TextInput>
                 <View style={{ flexDirection: 'row', marginLeft: 20, marginTop: -10 }}>
-                    <CheckBox disabled={false} value={toggleCheckBox} onValueChange={(newValue) => setToggleCheckBox(newValue)}></CheckBox>
-                    <Pressable style={{ marginTop: 8 }}><Text style={[styles.txt,{fontSize:14,lineHeight:17}]}>Tôi đã đọc và đồng ý với <Text style={{ color: 'yellow', paddingTop: 12 }}>thể lệ chường trình</Text> </Text></Pressable>
+                    <CheckBox style={{marginTop:5}} disabled={false} value={toggleCheckBox} onValueChange={(newValue) => setToggleCheckBox(newValue)}></CheckBox>
+                    <Pressable style={{ marginTop: 8 }}><Text style={[styles.txt,{fontSize:9,lineHeight:17}]}>Tôi đã đọc và đồng ý với <Text style={{ color: 'yellow', paddingTop: 12 }}>thể lệ chường trình</Text> </Text></Pressable>
                 </View>
             </View>
-            <Image source={require('../images/flower-2.png')} style={{position:'absolute',right:0,top:383}}/>
-            <Image  source={require('../images/flower-3.png')} style={{position:'absolute',left:0,top:412}}/>
+            <Image source={require('../images/flower-2.png')} style={{position:'absolute',right:0,top:473}}/>
+            <Image  source={require('../images/flower-3.png')} style={{position:'absolute',left:0,top:510}}/>
             <View style={{lineHeight:20,marginTop:70,alignItems:'center'}}>
                 <Pressable ><Image source={require('../images/OTP.png')}/></Pressable>
                 <Pressable><Image source={require('../images/LG.png')} style={{marginTop:15}}/></Pressable>
             </View>
-            <Image source={require('../images/left-bottom.png')} style={{position:'absolute',left:-10,top:530}}/>
-            <Image source={require('../images/right-bottom.png')} style={{position:'absolute',right:0,top:479}}/>
+            <Image source={require('../images/left-bottom.png')} style={{position:'absolute',left:-10,top:590}}/>
+            <Image source={require('../images/right-bottom.png')} style={{position:'absolute',right:0,top:550}}/>
         </View>
     )
 }

@@ -27,8 +27,8 @@ const Login = () => {
                 <Pressable ><Image source={require('../images/OTP.png')}/></Pressable>
                 <Pressable><Image source={require('../images/RG.png')} style={{marginTop:15}}/></Pressable>
             </View>
-            <Image source={require('../images/left-bottom.png')} style={{position:'absolute',left:-10,top:530}}/>
-            <Image source={require('../images/right-bottom.png')} style={{position:'absolute',right:0,top:479}}/>
+            <Image source={require('../images/left-bottom.png')} style={{position:'absolute',left:-10,top:600}}/>
+            <Image source={require('../images/right-bottom.png')} style={{position:'absolute',right:0,top:550}}/>
         </View>
   )
 }
@@ -60,6 +60,6 @@ const styles = StyleSheet.create({
         color: 'black',
         paddingLeft: 12,
         gap:10,
-        height:40,
+        height:50,
     }
 })
