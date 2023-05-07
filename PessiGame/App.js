@@ -1,40 +1,39 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
-import Register from './src/container/Register'
-import OtpRegister from './src/container/OtpRegister'
-import Rules from './src/container/Rules'
-import Login from './src/container/Login'
-import HomePage from './src/container/HomePage'
-import Game from './src/container/Game'
-import Collection from './src/container/Collection'
+import { StyleSheet, Text, View, } from 'react-native'
+import React, { useEffect } from 'react'
+import { AppContextProvider } from './src/context/AppContext'
+import { NavigationContainer } from '@react-navigation/native'
+import AppNavigator from './src/context/AppNavigator'
 
+import firebase from 'firebase/app'
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+import {getAuth} from "firebase/auth"
 
 const App = () => {
 
-  // const Stack = createNativeStackNavigator()
-  // const LoginStack = () => {
-  //   <Stack.Navigator screenOptions={{ headerShown: false }}>
-  //     <Stack.Screen name='Register' component={Register} />
-  //     <Stack.Screen name='OtpRegister' component={OtpRegister} />
-  //     <Stack.Screen name='Login' component={Login} />
-  //     <Stack.Screen name='Rules' component={Rules} />
+  useEffect(() => {
+    const firebaseConfig = {
+      apiKey: "AIzaSyCroiXWfQ6QbcLySJkwXVMAEviPnAQ9ok4",
+      authDomain: "pepsi-game-764fa.firebaseapp.com",
+      projectId: "pepsi-game-764fa",
+      storageBucket: "pepsi-game-764fa.appspot.com",
+      messagingSenderId: "839996812702",
+      appId: "1:839996812702:web:38799f0bd58154a0e43a8f",
+      measurementId: "G-Y9Y5V5B4PN"
+    };
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app)
+    console.log("\nConnect Succesful\n")
+  }, []);
 
-  //   </Stack.Navigator>
-  //}
   return (
 
-    // <NavigationContainer>
-    //   <Stack.Navigator screenOptions={{ headerShown: false }}>
-    //     <Stack.Screen name='Register' component={Register} />
-    //     <Stack.Screen name='OtpRegister' component={OtpRegister} />
-    //     <Stack.Screen name='Login' component={Login} />
-    //     <Stack.Screen name='Rules' component={Rules} />
+    <AppContextProvider>
+      <NavigationContainer>
+        <AppNavigator></AppNavigator>
+      </NavigationContainer>
+    </AppContextProvider>
 
-    //   </Stack.Navigator>
-    // </NavigationContainer>
-    
-    <Collection></Collection>
-    
   )
 }
 

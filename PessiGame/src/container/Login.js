@@ -4,6 +4,7 @@ import CheckBox from '@react-native-community/checkbox'
 import { useNavigation } from '@react-navigation/native'
 
 const Login = () => {
+    const navigation = useNavigation()
   return (
     <View style={styles.container}>
             <View style={[styles.cloud,{marginTop:-20}]}>
@@ -23,12 +24,15 @@ const Login = () => {
             <Image source={require('../images/pepsi.png')} style={{height:150,width:150,marginStart:100}}/>
             <Image source={require('../images/flower-2.png')} style={{position:'absolute',right:0,top:383}}/>
             <Image  source={require('../images/flower-3.png')} style={{position:'absolute',left:0,top:412}}/>
-            <View style={{lineHeight:20,marginTop:10,alignItems:'center'}}>
-                <Pressable ><Image source={require('../images/OTP.png')}/></Pressable>
-                <Pressable><Image source={require('../images/RG.png')} style={{marginTop:15}}/></Pressable>
-            </View>
+        
             <Image source={require('../images/left-bottom.png')} style={{position:'absolute',left:-10,top:600}}/>
             <Image source={require('../images/right-bottom.png')} style={{position:'absolute',right:0,top:550}}/>
+            <View style={{lineHeight:20,marginTop:10,alignItems:'center'}}>
+                <Pressable onPress={()=>navigation.navigate('Otp')}><Image source={require('../images/OTP.png')}/></Pressable>
+                <Pressable onPress={()=>navigation.goBack()} ><Image source={require('../images/RG.png')} style={{marginTop:15}}/></Pressable>
+            </View>
+           
+            
         </View>
   )
 }

@@ -1,11 +1,13 @@
 import { Image, Pressable, StyleSheet, Text, TextInput, View } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import CheckBox from '@react-native-community/checkbox'
+import { useNavigation } from '@react-navigation/native'
 
 
 
 const OtpRegister = () => {
     const [toggleCheckBox, setToggleCheckBox] = useState(false)
+    const navigation = useNavigation()
     return (
         <View style={styles.container}>
             <View style={[styles.cloud, { marginTop: -20 }]}>
@@ -34,12 +36,13 @@ const OtpRegister = () => {
             </View>
             <Image source={require('../images/flower-2.png')} style={{ position: 'absolute', right: 0, top: 383 }} />
             <Image source={require('../images/flower-3.png')} style={{ position: 'absolute', left: 0, top: 432 }} />
-            <View style={{ lineHeight: 20, marginTop: 20, alignItems: 'center' }}>
-                <Pressable><Image source={require('../images/XD.png')}/></Pressable>
-            </View>
-            <Pressable style={{ marginTop: 8 }}><Text style={[styles.txt,{fontSize:12,lineHeight:17}]}>Bạn chưa nhận được mã? <Text style={{ color: 'yellow', paddingTop: 12 }}>Gửi lại mã</Text> </Text></Pressable>
             <Image source={require('../images/left-bottom.png')} style={{ position: 'absolute', left: -10, top: 600 }} />
             <Image source={require('../images/right-bottom.png')} style={{ position: 'absolute', right: 0, top: 550 }} />
+            <View style={{ lineHeight: 20, marginTop: 20, alignItems: 'center' }}>
+                <Pressable onPress={()=>navigation.navigate('Main')}><Image source={require('../images/XD.png')}/></Pressable>
+            </View>
+            <Pressable style={{ marginTop: 8 }}><Text style={[styles.txt,{fontSize:12,lineHeight:17}]}>Bạn chưa nhận được mã? <Text style={{ color: 'yellow', paddingTop: 12 }}>Gửi lại mã</Text> </Text></Pressable>
+            
         </View>
     )
 }

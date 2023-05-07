@@ -1,14 +1,15 @@
 import { Image, Pressable, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { Dimensions } from 'react-native'
+import { useNavigation } from '@react-navigation/native'
 
 
 const Rules = () => {
-
+const navigation = useNavigation()
     return (
         <View style={styles.container}>
             <View style={[styles.cloud]}>
-                <Pressable><Image source={require('../images/arrow-back.png')} /></Pressable>
+                <Pressable onPress={()=>{navigation.goBack()}}><Image source={require('../images/arrow-back.png')} /></Pressable>
                 <Text style={[styles.txt, { fontWeight: '900', fontSize: 14, lineHeight: 29, marginStart: 20,marginTop:-10 }]}>Thể lệ chương trình</Text>
             </View>
             <Image source={require('../images/right-top.png')} style={[{ position: 'absolute', top: 0, right: 0 }]} />
