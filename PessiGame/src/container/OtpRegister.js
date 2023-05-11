@@ -1,12 +1,19 @@
-import { Image, Pressable, StyleSheet, Text, TextInput, View } from 'react-native'
-import React, { useEffect, useState } from 'react'
+import { Alert, Image, Pressable, StyleSheet, Text, TextInput, View } from 'react-native'
+import React, { useEffect, useState,useRef } from 'react'
 import CheckBox from '@react-native-community/checkbox'
 import { useNavigation } from '@react-navigation/native'
+import OTPInputView from "@twotalltotems/react-native-otp-input";
 
 
-
-const OtpRegister = () => {
-    const [toggleCheckBox, setToggleCheckBox] = useState(false)
+const OtpRegister = ({
+    route: { params: { isOtp },
+    },
+}) => {
+    const firstInput = useRef();
+    const secondInput = useRef();
+    const thirdInput = useRef();
+    const fourthInput = useRef();
+    const [otpIP,setotpIP] = useState({1:'',2:'',3:'',4:''})
     const navigation = useNavigation()
     return (
         <View style={styles.container}>
@@ -24,25 +31,44 @@ const OtpRegister = () => {
                 <Text style={styles.txt}>
                     Xác minh OTP
                 </Text>
-                <Text style={[styles.txt,{marginBottom:30}]}>
-                    Nhập mã OTP vừa được gửi về điện thoại của bạn
+                <Text style={[styles.txt, { marginBottom: 30 }]}>
+                    Nhập mã OTP vừa được gửi về điện thoại {isOtp} của bạn
                 </Text>
                 <View style={{ flexDirection: 'row' }}>
-                    <TextInput style={[styles.input, { marginTop: 0 }]} placeholder="-"></TextInput>
-                    <TextInput style={[styles.input, { marginTop: 0 }]} placeholder="-"></TextInput>
-                    <TextInput style={[styles.input, { marginTop: 0 }]} placeholder="-"></TextInput>
-                    <TextInput style={[styles.input, { marginTop: 0 }]} placeholder="-"></TextInput>
+                    <TextInput style={[styles.input, { marginTop: 0 }]} placeholder="-" keyboardType='number-pad' maxLength={1} ref={firstInput}
+                    onChangeText={(text)=>{
+                        setotpIP({...otpIP,1:text});
+                        text && secondInput.current.focus()
+                    }}/>
+                    <TextInput style={[styles.input, { marginTop: 0 }]} placeholder="-" keyboardType='number-pad' maxLength={1} ref={secondInput}
+                    onChangeText={(text)=>{
+                        setotpIP({...otpIP,2:text});
+                        text ? thirdInput.current.focus() : firstInput.current.focus()
+                    }}/>
+                    <TextInput style={[styles.input, { marginTop: 0 }]} placeholder="-" keyboardType='number-pad' maxLength={1} ref={thirdInput}
+                    onChangeText={(text)=>{
+                        setotpIP({...otpIP,3:text});
+                        text ? fourthInput.current.focus():secondInput.current.focus()
+                    }}
+                    />
+                    <TextInput style={[styles.input, { marginTop: 0 }]} placeholder="-" keyboardType='number-pad' maxLength={1} ref={fourthInput}
+                    onChangeText={(text)=>{
+                        setotpIP({...otpIP,4:text});
+                        !text && thirdInput.current.focus()
+                    }}/>
+                    {/* <OTPInputView pinCount={4} /> */}
                 </View>
             </View>
             <Image source={require('../images/flower-2.png')} style={{ position: 'absolute', right: 0, top: 383 }} />
             <Image source={require('../images/flower-3.png')} style={{ position: 'absolute', left: 0, top: 432 }} />
             <Image source={require('../images/left-bottom.png')} style={{ position: 'absolute', left: -10, top: 600 }} />
             <Image source={require('../images/right-bottom.png')} style={{ position: 'absolute', right: 0, top: 550 }} />
+
             <View style={{ lineHeight: 20, marginTop: 20, alignItems: 'center' }}>
-                <Pressable onPress={()=>navigation.navigate('Main')}><Image source={require('../images/XD.png')}/></Pressable>
+                <Pressable onPress={() => {navigation.navigate('Main'),console.log(otpIP)}}><Image source={require('../images/XD.png')} /></Pressable>
             </View>
-            <Pressable style={{ marginTop: 8 }}><Text style={[styles.txt,{fontSize:12,lineHeight:17}]}>Bạn chưa nhận được mã? <Text style={{ color: 'yellow', paddingTop: 12 }}>Gửi lại mã</Text> </Text></Pressable>
-            
+            <Pressable style={{ marginTop: 8 }}><Text style={[styles.txt, { fontSize: 12, lineHeight: 17 }]}>Bạn chưa nhận được mã? <Text style={{ color: 'yellow', paddingTop: 12 }}>Gửi lại mã</Text> </Text></Pressable>
+
         </View>
     )
 }
