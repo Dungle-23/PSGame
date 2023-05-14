@@ -19,7 +19,7 @@ const HomePage = () => {
       <Image source={require('../images/trong.png')} style={[{position:'absolute',bottom:420,left:90}]} />
       <Image source={require('../images/DauLan.png')} style={[{ position: 'absolute', left: 70, top: 160 }]} />
       <View style={{marginTop:-110,alignItems:'center'}}>
-        <Pressable><Text style={[styles.txt,{color:'yellow',fontWeight:'900',lineHeight:22,fontSize:14,backgroundColor:'red'}]}>Hướng dẫn</Text></Pressable>
+        <Pressable><Text style={[styles.txt,{color:'yellow',fontWeight:'900',lineHeight:22,fontSize:14}]}>Hướng dẫn</Text></Pressable>
         <Pressable onPress={()=>navigation.navigate('Game')} style={{margin:1}}><Image source={require('../images/button-1-main.png')} style={[]} /></Pressable>
         <Pressable style={{margin:1}}><Image source={require('../images/button-qr-main.png')} style={[{}]} /></Pressable>
         <Pressable style={{margin:1}} onPress={()=> navigation.navigate('Coll')}><Image source={require('../images/button-gar-main.png')} style={[{}]} /></Pressable>

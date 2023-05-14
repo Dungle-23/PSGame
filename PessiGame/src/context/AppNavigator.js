@@ -14,6 +14,8 @@ import Rules from '../container/Rules';
 import HomePage from '../container/HomePage';
 import Game from '../container/Game';
 import Collection from '../container/Collection';
+import Prize from '../container/Prize';
+import Gift from '../container/Gift';
 
 
 
@@ -22,8 +24,10 @@ const Main = () =>{
         <Stack.Navigator initialRouteName='HomePage' screenOptions={{headerShown:false}}>
             <Stack.Screen name='HomePage' component={HomePage}/>
             <Stack.Screen name='Game' component={Game}/>
+            <Stack.Screen name='Prize' component={Prize}/>
             <Stack.Screen name='Coll' component={Collection}/>
             <Stack.Screen name='SigIn' component={Login}/>
+            <Stack.Screen name='Gift' component={Gift}/>
         </Stack.Navigator>
     )
 }

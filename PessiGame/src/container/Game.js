@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View, Image, Pressable } from 'react-native'
 import React from 'react'
 import { useNavigation } from '@react-navigation/native'
+import Draggable from 'react-native-draggable';
 
 const Game = () => {
     const navigate = useNavigation();
@@ -33,7 +34,17 @@ const Game = () => {
 
             </View>
             <Image source={require('../images/bottom-game.png')} style={[{ position: 'absolute', top: 500 }]} />
-            <Image source={require('../images/DauLan.png')} style={[{ position: 'absolute', bottom: 370, left: 90 }]} />
+            <Draggable
+            imageSource={require('../images/DauLan.png')}
+            x={80} 
+            y={630} 
+            maxX={100} 
+            minX={80} 
+            minY={400} 
+            renderSize={220}  
+            shouldReverse 
+            onDragRelease={()=>navigate.navigate('Prize')}/>
+            {/* <Image source={require('../images/DauLan.png')} style={[{ position: 'absolute', bottom: 370, left: 90 }]} /> */}
         </View>
     )
 }

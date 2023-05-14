@@ -1,5 +1,5 @@
 import { Image, Pressable, StyleSheet, Text, TextInput, View } from 'react-native'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import CheckBox from '@react-native-community/checkbox'
 import { useNavigation } from '@react-navigation/native'
 
@@ -8,6 +8,11 @@ import { useNavigation } from '@react-navigation/native'
 const OtpRegister = () => {
     const [toggleCheckBox, setToggleCheckBox] = useState(false)
     const navigation = useNavigation()
+    const fisrt = useRef()
+    const second = useRef()
+    const third = useRef()
+    const fourth = useRef()
+    const [Otp, setOtp] = useState({ 1: '', 2: '', 3: '', 4: '' })
     return (
         <View style={styles.container}>
             <View style={[styles.cloud, { marginTop: -20 }]}>
@@ -24,14 +29,27 @@ const OtpRegister = () => {
                 <Text style={styles.txt}>
                     Xác minh OTP
                 </Text>
-                <Text style={[styles.txt,{marginBottom:30}]}>
+                <Text style={[styles.txt, { marginBottom: 30 }]}>
                     Nhập mã OTP vừa được gửi về điện thoại của bạn
                 </Text>
                 <View style={{ flexDirection: 'row' }}>
-                    <TextInput style={[styles.input, { marginTop: 0 }]} placeholder="-"></TextInput>
-                    <TextInput style={[styles.input, { marginTop: 0 }]} placeholder="-"></TextInput>
-                    <TextInput style={[styles.input, { marginTop: 0 }]} placeholder="-"></TextInput>
-                    <TextInput style={[styles.input, { marginTop: 0 }]} placeholder="-"></TextInput>
+                    <TextInput style={[styles.input, { marginTop: 0 }]} placeholder="-" maxLength={1} ref={fisrt}
+                        keyboardType='number-pad' onChangeText={text => {
+                            setOtp({ ...Otp, 1: text })
+                            text && second.current.focus()
+                        }} />
+                    <TextInput style={[styles.input, { marginTop: 0 }]} placeholder="-" maxLength={1} ref={second} keyboardType='number-pad' onChangeText={text => {
+                        setOtp({ ...Otp, 2: text })
+                        text ? third.current.focus() : fisrt.current.focus()
+                    }} />
+                    <TextInput style={[styles.input, { marginTop: 0 }]} placeholder="-" maxLength={1} ref={third} keyboardType='number-pad' onChangeText={text => {
+                        setOtp({ ...Otp, 3: text })
+                        text ? fourth.current.focus() : second.current.focus()
+                    }} />
+                    <TextInput style={[styles.input, { marginTop: 0 }]} placeholder="-" maxLength={1} ref={fourth} keyboardType='number-pad' onChangeText={text => {
+                        setOtp({ ...Otp, 4: text })
+                        !text && third.current.focus()
+                    }} />
                 </View>
             </View>
             <Image source={require('../images/flower-2.png')} style={{ position: 'absolute', right: 0, top: 383 }} />
@@ -39,10 +57,10 @@ const OtpRegister = () => {
             <Image source={require('../images/left-bottom.png')} style={{ position: 'absolute', left: -10, top: 600 }} />
             <Image source={require('../images/right-bottom.png')} style={{ position: 'absolute', right: 0, top: 550 }} />
             <View style={{ lineHeight: 20, marginTop: 20, alignItems: 'center' }}>
-                <Pressable onPress={()=>navigation.navigate('Main')}><Image source={require('../images/XD.png')}/></Pressable>
+                <Pressable onPress={() => navigation.navigate('Main')}><Image source={require('../images/XD.png')} /></Pressable>
             </View>
-            <Pressable style={{ marginTop: 8 }}><Text style={[styles.txt,{fontSize:12,lineHeight:17}]}>Bạn chưa nhận được mã? <Text style={{ color: 'yellow', paddingTop: 12 }}>Gửi lại mã</Text> </Text></Pressable>
-            
+            <Pressable style={{ marginTop: 8 }}><Text style={[styles.txt, { fontSize: 12, lineHeight: 17 }]}>Bạn chưa nhận được mã? <Text style={{ color: 'yellow', paddingTop: 12 }}>Gửi lại mã</Text> </Text></Pressable>
+
         </View>
     )
 }
