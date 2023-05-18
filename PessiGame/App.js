@@ -8,6 +8,7 @@ import firebase from 'firebase/app'
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import {getAuth} from "firebase/auth"
+import HomePage from './src/container/HomePage'
 
 const App = () => {
 
@@ -31,6 +32,7 @@ const App = () => {
     <AppContextProvider>
       <NavigationContainer>
         <AppNavigator></AppNavigator>
+        {/* <HomePage></HomePage> */}
       </NavigationContainer>
     </AppContextProvider>
 
