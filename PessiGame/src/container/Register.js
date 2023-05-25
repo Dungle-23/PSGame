@@ -29,7 +29,7 @@ const Register = () => {
                 <TextInput style={[styles.input]} placeholder="Số điện thoại" keyboardType='numeric' />
                 <TextInput style={[styles.input, { marginTop: 0 }]} placeholder="Tên người dùng" onChangeText={() => setisOtp(!IsOtp)} />
                 <View style={{ flexDirection: 'row', marginLeft: 20, marginTop: -10 }}>
-                    <CheckBox style={{ marginTop: 5 }} disabled={false} value={toggleCheckBox} onValueChange={(newValue) => setToggleCheckBox(newValue)}></CheckBox>
+                    <CheckBox style={{ marginTop: 5 }} disabled={false} value={toggleCheckBox} onValueChange={(newValue) => setToggleCheckBox(newValue)} ></CheckBox>
                     <Pressable style={{ marginTop: 8 }} onPress={() => { navigation.navigate('Rules'), console.log("click") }}><Text style={[styles.txt, { fontSize: 9, lineHeight: 17 }]}>Tôi đã đọc và đồng ý với <Text style={{ color: 'yellow', paddingTop: 12 }}>thể lệ chường trình</Text> </Text></Pressable>
                 </View>
             </View>

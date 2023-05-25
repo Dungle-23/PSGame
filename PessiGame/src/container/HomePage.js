@@ -43,7 +43,7 @@ const HomePage = () => {
       <Image source={require('../images/trong.png')} style={[{ position: 'absolute', bottom: 420, left: 90 }]} />
       <Image source={require('../images/DauLan.png')} style={[{ position: 'absolute', left: 70, top: 160 }]} />
       <View style={{ marginTop: -110, alignItems: 'center' }}>
-        <Pressable><Text style={[styles.txt, { color: 'yellow', fontWeight: '900', lineHeight: 22, fontSize: 14 }]}>Hướng dẫn</Text></Pressable>
+        <Pressable onPress={()=>navigation.navigate('HD')}><Text style={[styles.txt, { color: 'yellow', fontWeight: '900', lineHeight: 22, fontSize: 14 }]}>Hướng dẫn</Text></Pressable>
         <ModalPopup visible={visible}>
           <LinearGradient colors={['#FCD54E', '#FDEA95', '#FBD239']} styles={{ alignItems: 'center', }}>
             <View style={[styles.header]}>

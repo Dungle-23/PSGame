@@ -9,7 +9,8 @@ import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import {getAuth} from "firebase/auth"
 import HomePage from './src/container/HomePage'
-
+import Gift from './src/container/Gift'
+import HD from './src/container/HD'
 const App = () => {
 
   useEffect(() => {
@@ -32,7 +33,8 @@ const App = () => {
     <AppContextProvider>
       <NavigationContainer>
         <AppNavigator></AppNavigator>
-        {/* <HomePage></HomePage> */}
+        
+        {/* <Gift></Gift> */}
       </NavigationContainer>
     </AppContextProvider>
 

@@ -16,7 +16,7 @@ import Game from '../container/Game';
 import Collection from '../container/Collection';
 import Prize from '../container/Prize';
 import Gift from '../container/Gift';
-
+import HD from '../container/HD';
 
 
 const Main = () =>{
@@ -28,6 +28,7 @@ const Main = () =>{
             <Stack.Screen name='Coll' component={Collection}/>
             <Stack.Screen name='SigIn' component={Login}/>
             <Stack.Screen name='Gift' component={Gift}/>
+            <Stack.Screen name='HD' component={HD}/>
         </Stack.Navigator>
     )
 }
