@@ -1,9 +1,13 @@
 import { StyleSheet, Text, View, Image, Pressable } from 'react-native'
-import React from 'react'
+import React, { useContext } from 'react'
 import { useNavigation } from '@react-navigation/native'
+import { AppContext } from '../context/AppContext'
 
 const Prize = () => {
     const navigation = useNavigation()
+    const { randomImageScore } = useContext(AppContext);
+    const { randomImagePrize } = useContext(AppContext);
+    
     return (
         <View style={[styles.container]}>
             <View>
@@ -15,8 +19,12 @@ const Prize = () => {
                     <Image source={require('../images/Big-half-flower.png')} style={[{ position: 'absolute', right: 0, top: 100 }]} />
                     <Image source={require('../images/yellow-flower.png')} style={[{ position: 'absolute', left: 20, top: 600 }]} />
                 </View>
-                <Image source={require('../images/Pepsi-lon.png')} style={[{ position: 'absolute', left: 100, top: 120 }]} />
-                <Image source={require('../images/50-point.png')} style={[{ position: 'absolute', left: 190, top: 60 }]} />
+                <Image source={randomImagePrize} style={[{ position: 'absolute', left: 100, top: 120 }]} />
+                <View style={[{ position: 'absolute', left: 190, top: 60 }]} >
+                    <Image source={require('../images/prize/tron-trang.png')} />
+                    <Image source={require('../images/prize/tron-do.png')} style={{position:'absolute',left:10,top:10}}/>
+                    <Text style={{position:'absolute',color:'white',fontWeight:'bold',fontSize:18,left:25,top:28}}>{randomImageScore}</Text>
+                </View>
                 <Image source={require('../images/txt.png')} style={[{ position: 'absolute', left: 50, top: 520 }]} />
 
                 <Image source={require('../images/bottom-main.png')} style={[{ position: 'absolute', top: 370 }]} />

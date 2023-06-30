@@ -1,12 +1,13 @@
 import { StyleSheet, Text, View, Image, Pressable, ScrollView ,TextInput,TouchableOpacity} from 'react-native'
-import React ,{useState}from 'react'
+import React ,{useContext, useState}from 'react'
 import Modal from "react-native-modal";
 import { useNavigation } from '@react-navigation/native'
+import { AppContext } from '../context/AppContext';
 
 const Gift = () => {
     const navigation = useNavigation()
     // const [showdoiqua, setShowdoiqua] = useState()
-    
+    const {soDiem} = useContext(AppContext)
     const [showdoiqua, setShowdoiqua] = useState()
     const [isModalVisible, setIsModalVisible] = useState(false);
     const handleModal = () => setIsModalVisible(() => !isModalVisible);
@@ -78,7 +79,7 @@ const Gift = () => {
                         source={require('./../images/pattern-3/arrow-left.png')} />
                 </Pressable>
 
-                <Pressable>
+                <Pressable onPress={()=> navigation.navigate('HomePage')}>
                     <Image
                         style={{
                             position: 'absolute',
@@ -107,7 +108,9 @@ const Gift = () => {
                             <TextInput style={styles.input3} placeholder='Nhập địa chỉ của bạn'></TextInput>
                             <Text style={styles.title111}>Ghi chú</Text>
                             <TextInput style={styles.input3} placeholder='Nhập ghi chú nếu có'></TextInput>
-                            <Pressable style={{marginLeft:80,marginTop:20}}>
+                            <Pressable style={{marginLeft:80,marginTop:20}} onPress={()=>{
+                                
+                            }}>
                                 <Image source={require('../images/modalgift/xacnhan.png')}/>
                             </Pressable>
                         </View>
@@ -125,7 +128,7 @@ const Gift = () => {
                                 <Image source={require('../images/gift/quacuatui.png')} />
                             </View>
                             <Image style={{ backgroundColor: '#BE050C', borderRadius: 60 }} source={require('../images/Circle.png')} />
-                            <Text style={styles.title2} >700</Text>
+                            <Text style={styles.title2} >{soDiem}</Text>
                             <Text style={styles.title}>Số coins hiện tại của bạn</Text>
                         </Pressable>
                         :
@@ -244,10 +247,10 @@ const styles = StyleSheet.create({
         marginTop: 55,
     }, 
     title2: {
-        fontSize: 20,
+        fontSize: 18,
         fontWeight: 'bold',
         color: 'white',
-        marginTop: -70
+        marginTop: -65
     },
     title: {
         fontSize: 18,

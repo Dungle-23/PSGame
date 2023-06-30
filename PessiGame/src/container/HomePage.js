@@ -4,7 +4,7 @@ import { useNavigation } from '@react-navigation/native'
 import LinearGradient from 'react-native-linear-gradient'
 
 const ModalPopup = ({ visible, children }) => {
-  
+
   useEffect(() => {
     return () => {
       toggleModal()
@@ -43,12 +43,13 @@ const HomePage = () => {
       <Image source={require('../images/trong.png')} style={[{ position: 'absolute', bottom: 420, left: 90 }]} />
       <Image source={require('../images/DauLan.png')} style={[{ position: 'absolute', left: 70, top: 160 }]} />
       <View style={{ marginTop: -110, alignItems: 'center' }}>
-        <Pressable onPress={()=>navigation.navigate('HD')}><Text style={[styles.txt, { color: 'yellow', fontWeight: '900', lineHeight: 22, fontSize: 14 }]}>Hướng dẫn</Text></Pressable>
+        <Pressable onPress={() => navigation.navigate('HD')}><Text style={[styles.txt, { color: 'yellow', fontWeight: '900', lineHeight: 22, fontSize: 14 }]}>Hướng dẫn</Text></Pressable>
         <ModalPopup visible={visible}>
           <LinearGradient colors={['#FCD54E', '#FDEA95', '#FBD239']} styles={{ alignItems: 'center', }}>
             <View style={[styles.header]}>
-              <Image source={require('../images/popup/close.png')} style={{ height: 30, width: 30, backgroundColor: 'red', tintColor: 'white', borderRadius: 50 }} />
-
+              <TouchableOpacity onPress={()=>setVisible(false)}>
+                <Image source={require('../images/popup/close.png')} style={{ height: 30, width: 30, tintColor: 'white', borderRadius: 50 }} />
+              </TouchableOpacity>
             </View>
             <View style={{ paddingHorizontal: 10 }}>
               <Text style={{ textAlign: 'center', color: '#D02027', fontWeight: '900', fontSize: 16, lineHeight: 18 }}>
@@ -56,19 +57,24 @@ const HomePage = () => {
               </Text>
             </View>
             <View style={{ alignItems: 'center', justifyContent: 'center', marginTop: 20, lineHeight: 24, marginBottom: 20 }}>
-              <Pressable onPress={()=> navigation.navigate('Game')}><Image source={require('../images/popup/Button.png')} /></Pressable>
+              <Pressable onPress={() => {
+                setVisible(false)
+                navigation.navigate('Game')
+
+              }
+              }><Image source={require('../images/popup/Button.png')} /></Pressable>
               <Pressable><Image source={require('../images/popup/button1.png')} /></Pressable>
             </View>
 
           </LinearGradient>
         </ModalPopup>
         <Pressable onPress={() => setVisible(true)} style={{ margin: 1, }}><Image source={require('../images/button-1-main.png')} /></Pressable>
-        
+
         <Pressable style={{ margin: 1 }}><Image source={require('../images/button-qr-main.png')} style={[{}]} /></Pressable>
         <Pressable style={{ margin: 1 }} onPress={() => navigation.navigate('Coll')}><Image source={require('../images/button-gar-main.png')} style={[{}]} /></Pressable>
         <Pressable style={{ margin: 1 }} onPress={() => navigation.navigate('Gift')}><Image source={require('../images/button-detail-main.png')} style={[{}]} /></Pressable>
       </View>
-      <Pressable onPress={()=>navigation.navigate('SigIn')}><Image source={require('../images/back.png')} style={[{ position: 'absolute', right: 20, top: -650 }]} /></Pressable>
+      <Pressable onPress={() => navigation.navigate('SigIn')}><Image source={require('../images/back.png')} style={[{ position: 'absolute', right: 20, top: -650 }]} /></Pressable>
     </View>
   )
 }
@@ -79,7 +85,7 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: '#3399FF',
     height: 1200,
-    maxHeight: 1200,flex:1
+    maxHeight: 1200, flex: 1
   },
   txt: {
     textAlign: 'center',

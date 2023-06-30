@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "442685734868",
+    "firebase_url": "https://pepsigame-91417-default-rtdb.firebaseio.com",
+    "project_id": "pepsigame-91417",
+    "storage_bucket": "pepsigame-91417.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:442685734868:android:d56875d9fef9ed1cdd6041",
+        "android_client_info": {
+          "package_name": "com.pessigame"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "442685734868-mqs3tv1mullp8fr7h7ne1e48scq6p7kl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.pessigame",
+            "certificate_hash": "1a20cb430e8b354244af16f5fe41c0337c538792"
+          }
+        },
+        {
+          "client_id": "442685734868-l6b19jiph9d2u575e8m62i30mlsdd25k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCcUvw02qXQSe_7hppyUxgjT1xiWI-WuU4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "442685734868-l6b19jiph9d2u575e8m62i30mlsdd25k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
